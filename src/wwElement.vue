@@ -87,6 +87,7 @@ export default {
         "--selector-border-radius":
           this.content.globalStyle.selectorBorderRadius + "px",
         "--selector-shadow": this.content.globalStyle.selectorShadow,
+        "--track-height": this.content.globalStyle.trackHeight,
         "--selector-background":
           this.content.globalStyle.selectorBackgroundColor,
         "--ratio": `${ratio}%`,
@@ -158,7 +159,7 @@ export default {
   }
   input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 5px;
+    height: var(--track-height);
     cursor: pointer;
     box-shadow: 0px 0px 0px #000000;
     background: linear-gradient(
@@ -170,7 +171,7 @@ export default {
     border: 0px solid #000000;
   }
   input[type="range"]::-webkit-slider-thumb {
-    margin-top: calc((5px - var(--selector-height)) / 2);
+    margin-top: calc((var(--track-height) - var(--selector-height)) / 2);
     box-shadow: var(--selector-shadow);
     border: var(--selector-border-width) solid var(--selector-border);
     height: var(--selector-height);
@@ -182,7 +183,7 @@ export default {
   }
   input[type="range"]::-moz-range-track {
     width: 100%;
-    height: 5px;
+    height: var(--track-height);
     cursor: pointer;
     box-shadow: 0px 0px 0px #000000;
     background: var(--range-background);
@@ -190,7 +191,7 @@ export default {
     border: 0px solid #000000;
   }
   input[type="range"]::-moz-range-thumb {
-    margin-top: calc((5px - var(--selector-height)) / 2);
+    margin-top: calc((var(--track-height) - var(--selector-height)) / 2);
     box-shadow: var(--selector-shadow);
     border: var(--selector-border-width) solid var(--range-background);
     height: var(--selector-height);
@@ -201,7 +202,7 @@ export default {
   }
   input[type="range"]::-ms-track {
     width: 100%;
-    height: 5px;
+    height: var(--track-height);
     cursor: pointer;
     background: transparent;
 
@@ -230,7 +231,7 @@ export default {
     box-shadow: 0px 0px 0px #000000;
   }
   input[type="range"]::-ms-thumb {
-    margin-top: calc((5px - var(--selector-height)) / 2);
+    margin-top: calc((var(--track-height) - var(--selector-height)) / 2);
     box-shadow: var(--selector-shadow);
     border: var(--selector-border-width) solid var(--range-border);
     height: var(--selector-height);
@@ -258,7 +259,7 @@ export default {
     background-color: var(--tooltip-background);
     color: var(--tooltip-text-color);
     text-align: center;
-    padding: 5px 15px;
+    padding: var(--track-height) 15px;
     border-radius: 6px;
     position: absolute;
     z-index: 20;

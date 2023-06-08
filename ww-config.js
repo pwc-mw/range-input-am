@@ -123,6 +123,14 @@ export default {
             type: "Number",
             bindable: true,
           },
+          trackHeight: {
+            label: {
+              en: "Track height",
+              fr: "Track height",
+            },
+            type: "Number",
+            bindable: true,
+          },
           selectorShadow: {
             label: { en: "Selector box shadow", fr: "Selector box shadow" },
             type: "Text",
