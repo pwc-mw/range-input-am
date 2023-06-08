@@ -80,11 +80,12 @@ export default {
           ? this.content.globalStyle.activeRangeBackgroundColor
           : this.content.globalStyle.rangeBackgroundColor,
         "--selector-border": this.content.globalStyle.selectorBorderColor,
-        "--selector-border-width": this.content.globalStyle.selectorBorderWidth,
-        "--selector-height": this.content.globalStyle.selectorHeight,
-        "--selector-width": this.content.globalStyle.selectorWidth,
+        "--selector-border-width":
+          this.content.globalStyle.selectorBorderWidth + "px",
+        "--selector-height": this.content.globalStyle.selectorHeight + "px",
+        "--selector-width": this.content.globalStyle.selectorWidth + "px",
         "--selector-border-radius":
-          this.content.globalStyles.selectorBorderRadius,
+          this.content.globalStyle.selectorBorderRadius + "px",
         "--selector-shadow": this.content.globalStyle.selectorShadow,
         "--selector-background":
           this.content.globalStyle.selectorBackgroundColor,
@@ -136,6 +137,7 @@ export default {
   outline: none;
   font-family: inherit;
   border: inherit;
+
   &::placeholder {
     color: inherit;
     opacity: 0.7;
@@ -147,6 +149,7 @@ export default {
   /* wwEditor:end */
   input[type="range"] {
     -webkit-appearance: none;
+    background-color: transparent;
     margin: 10px 0;
     width: 100%;
   }
@@ -167,15 +170,15 @@ export default {
     border: 0px solid #000000;
   }
   input[type="range"]::-webkit-slider-thumb {
+    margin-top: calc((5px - var(--selector-height)) / 2);
     box-shadow: var(--selector-shadow);
-    border: var(--selector-border-width) px solid var(--selector-border);
-    height: var(--selector-height) px;
-    width: var(--selector-width) px;
-    border-radius: var(--selector-border-radius) px;
+    border: var(--selector-border-width) solid var(--selector-border);
+    height: var(--selector-height);
+    width: var(--selector-width);
+    border-radius: var(--selector-border-radius);
     background: var(--selector-background);
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -7px;
   }
   input[type="range"]::-moz-range-track {
     width: 100%;
@@ -187,11 +190,12 @@ export default {
     border: 0px solid #000000;
   }
   input[type="range"]::-moz-range-thumb {
+    margin-top: calc((5px - var(--selector-height)) / 2);
     box-shadow: var(--selector-shadow);
-    border: var(--selector-border-width) px solid var(--range-background);
-    height: var(--selector-height) px;
-    width: var(--selector-width) px;
-    border-radius: var(--selector-border-radius) px;
+    border: var(--selector-border-width) solid var(--range-background);
+    height: var(--selector-height);
+    width: var(--selector-width);
+    border-radius: var(--selector-border-radius);
     background: var(--range-background);
     cursor: pointer;
   }
@@ -200,6 +204,7 @@ export default {
     height: 5px;
     cursor: pointer;
     background: transparent;
+
     border-color: transparent;
     color: transparent;
   }
@@ -209,6 +214,7 @@ export default {
         var(--active-range-background)
       )
       0 / var(--ratio) 100% no-repeat var(--range-background);
+
     border: 0px solid #000000;
     border-radius: 2px;
     box-shadow: 0px 0px 0px #000000;
@@ -224,12 +230,12 @@ export default {
     box-shadow: 0px 0px 0px #000000;
   }
   input[type="range"]::-ms-thumb {
-    margin-top: 1px;
+    margin-top: calc((5px - var(--selector-height)) / 2);
     box-shadow: var(--selector-shadow);
-    border: var(--selector-border-width) px solid var(--range-border);
-    height: var(--selector-height) px;
-    width: var(--selector-width) px;
-    border-radius: var(--selector-border-radius) px;
+    border: var(--selector-border-width) solid var(--range-border);
+    height: var(--selector-height);
+    width: var(--selector-width);
+    border-radius: var(--selector-border-radius);
     background: var(--range-background);
     cursor: pointer;
   }
